@@ -1,7 +1,6 @@
-from django.test import TestCase
 from rest_framework.test import APIClient
-from django.contrib.auth.models import User
-from testing.testcase import TestCase
+from testing.testcases import TestCase
+
 
 LOGIN_URL = '/api/accounts/login/'
 LOGOUT_URL = '/api/accounts/logout/'
@@ -27,6 +26,7 @@ class AccountApiTests(TestCase):
             'username': self.user.username,
             'password': 'correct password',
         })
+        print(response.data)
         # 登陆失败，http status code 返回 405 = METHOD_NOT_ALLOWED
         self.assertEqual(response.status_code, 405)
 
