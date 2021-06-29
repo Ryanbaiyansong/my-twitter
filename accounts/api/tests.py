@@ -26,6 +26,7 @@ class AccountApiTests(TestCase):
             'username': self.user.username,
             'password': 'correct password',
         })
+        print(response.data)
         # 登陆失败，http status code 返回 405 = METHOD_NOT_ALLOWED
         self.assertEqual(response.status_code, 405)
 
